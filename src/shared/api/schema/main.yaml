@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Skill Tracker API
+  description: API for tracking and managing user skills
+  version: 1.0.0
+
+paths:
+  /skills:
+    get:
+      $ref: "./endpoints/skills.yaml#/getAllSkills"
+    post:
+      $ref: "./endpoints/skills.yaml#/createSkill"
+
+  /skills/{skillId}:
+    get:
+      $ref: "./endpoints/skills.yaml#/getSkill"
+    put:
+      $ref: "./endpoints/skills.yaml#/updateSkill"
+    delete:
+      $ref: "./endpoints/skills.yaml#/deleteSkill"

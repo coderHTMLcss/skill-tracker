@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/app/providers";
 
-const queryClient = new QueryClient();
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  import('@/mocks/browser').then(({ worker }) => {
-    worker.start();
-  });
-}
+// if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+//   import('@/mocks/browser').then(({ worker }) => {
+//     worker.start();
+//   });
+// }
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +36,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryClientProvider client={queryClient}>
+        <Providers>
           {children}
-        </QueryClientProvider>
+        </Providers>
       </body>
-    </html>
+    </html >
   );
 }

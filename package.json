@@ -6,7 +6,8 @@
     "dev": "next dev -p3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api": "npx openapi-typescript ./src/shared/api/schema/main.yaml -o ./src/shared/api/schema/generated.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

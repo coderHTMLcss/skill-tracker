@@ -1,0 +1,21 @@
+UnauthorizedError:
+  description: Unauthorized
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Unauthorized access
+
+NotFoundError:
+  description: Not Found
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Resource not found
