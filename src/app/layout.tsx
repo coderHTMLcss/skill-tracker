@@ -2,13 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/app/providers";
+import { MSWInit } from "@/shared/api/mocks/msw-init";
 
-
-// if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-//   import('@/mocks/browser').then(({ worker }) => {
-//     worker.start();
-//   });
-// }
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +26,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
+          <MSWInit />
           {children}
         </Providers>
       </body>
